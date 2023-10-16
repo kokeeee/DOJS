@@ -1,0 +1,28 @@
+<ion-content [fullscreen]="true" class="fondo1 ion-padding">
+  <br>
+  <section class="ion-padding">
+    <article class="ion-padding">
+      <h1 class="blanco ion-text-center titulo">Registro</h1>
+    </article>
+    <nav>
+        <ion-item>
+          <ion-label position="floating" class="blanco">Nombre usuario</ion-label>
+          <ion-input class="blanco"  name="username" required [(ngModel)]="datos.username"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating" class="blanco">Password</ion-label>
+          <ion-input class="blanco"  name="password" type="password" required [(ngModel)]="datos.password"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating" class="blanco">Correo electrónico</ion-label>
+          <ion-input class="blanco"  name="email" type="email" required [(ngModel)]="datos.correo"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating" class="blanco">Número de teléfono</ion-label>
+          <ion-input class="blanco"  name="telefono" type="tel" required [(ngModel)]="datos.telefono"></ion-input>
+        </ion-item>
+        <ion-button expand="block" class="ion-margin-top"  type="submit" (click)="register()">Registrarse</ion-button>
+    </nav>
+    <p class="blanco ion-text-center">¿Ya tienes una cuenta? <a href="/login">Iniciar sesión</a></p>
+  </section>
+</ion-content>

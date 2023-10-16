@@ -1,0 +1,19 @@
+section{
+    background-color: rgba(67, 67, 67, 0.697);
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 10px black;
+}
+nav ion-list ion-item{
+    --background: transparent;
+}
+article{
+    border-radius: 20px;
+    height: 100px;
+    width: 140px;
+    margin: 0 auto;
+    box-shadow: 0px 0px 5px 8px white;
+}
+img{
+    height: 100%;
+    width: 100%;
+}

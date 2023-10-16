@@ -1,0 +1,11 @@
+.titulo{
+    font-size: 32px;
+  }
+section{
+    background-color: rgba(67, 67, 67, 0.697);
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 10px black;
+}
+nav ion-item{
+    --background: transparent;
+}

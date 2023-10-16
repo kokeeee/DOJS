@@ -1,18 +1,57 @@
 import { Component } from '@angular/core';
+import { AuthService } from './servicios/auth.service';
+import { InteractionService } from './servicios/interaction.service';
+import { Router } from '@angular/router';
+import { FirestoreService } from './servicios/firestore.service';
+import { UserI } from './models/models';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
+  login: boolean = false;
+  rol: 'Usuario' | 'Admin' | null = null;
+
   public appPages = [
-    { title: 'Inbox', url: '/folder/inbox', icon: 'mail' },
-    { title: 'Outbox', url: '/folder/outbox', icon: 'paper-plane' },
-    { title: 'Favorites', url: '/folder/favorites', icon: 'heart' },
-    { title: 'Archived', url: '/folder/archived', icon: 'archive' },
-    { title: 'Trash', url: '/folder/trash', icon: 'trash' },
-    { title: 'Spam', url: '/folder/spam', icon: 'warning' },
+    { title: 'Home', url: '/home', icon: 'home' },
+    { title: 'Catalogo', url: 'juego-add', icon: 'cart' },
+
   ];
-  public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
-  constructor() {}
+  
+  constructor(private auth: AuthService,
+              private interac: InteractionService,
+              private router: Router,
+              private firestore: FirestoreService) {
+
+                this.auth.stateUser().subscribe( res => {
+                  if (res) {
+                       console.log('Tiene sesion iniciada');
+                       this.login = true;
+                       this.getDatosUser(res.uid)
+                  } else {
+                    console.log('No tiene sesion iniciada');
+                    this.login = false;
+                  
+                    
+                  }   
+             })
+              }
+
+  cerrar(){
+    this.auth.logut();
+    this.interac.presentToast('Sesion cerrada...');
+    this.router.navigate(['/login']);
+  }
+
+  getDatosUser(uid: string) {
+    const path = 'Usuarios';
+    const id = uid;
+    this.firestore.getDoc<UserI>(path, id).subscribe( res => {
+        console.log('datos -> ', res);
+        if (res) {
+          this.rol = res.perfil
+        }
+    })
+  }
 }

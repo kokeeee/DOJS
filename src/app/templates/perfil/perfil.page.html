@@ -1,0 +1,45 @@
+<ion-header [translucent]="true" class="">
+  <ion-toolbar class="">
+    <ion-buttons slot="start">
+      <ion-menu-button class=""></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="">Mi Perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="fondo1 ion-padding">
+  <section class="ion-padding">
+    <nav *ngIf="info">
+        <article>
+          <img src="../../../assets/img/user.webp" alt="">
+        </article>
+        <div class="linea"></div>
+        <ion-grid>
+          <h3 class="ion-text-center blanco">{{info.username}}</h3>
+          <h5 class="ion-text-center blanco">{{info.perfil}}</h5>
+          <ion-row class="blanco">
+            <ion-col>
+              <h6>Correo:</h6>
+            </ion-col>
+            <ion-col>
+              <h6>{{info.correo}}</h6>
+            </ion-col>
+          </ion-row>
+          <ion-row class="blanco">
+            <ion-col>
+              <h6>Telefono:</h6>
+            </ion-col>
+            <ion-col>
+              <h6>{{info.telefono}}</h6>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <div class="linea"></div>
+
+        
+    </nav>
+  </section>
+
+
+
+</ion-content>
