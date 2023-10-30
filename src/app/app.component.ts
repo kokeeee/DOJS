@@ -15,7 +15,7 @@ export class AppComponent {
 
   public appPages = [
     { title: 'Home', url: '/home', icon: 'home' },
-    { title: 'Catalogo', url: 'juego-add', icon: 'cart' },
+    { title: 'Catalogo', url: 'catalogo', icon: 'cart' },
 
   ];
   

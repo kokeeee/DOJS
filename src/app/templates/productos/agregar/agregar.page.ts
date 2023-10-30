@@ -19,13 +19,14 @@ export class AgregarPage implements OnInit {
     descripcion: '',
     plataforma: '',
   }
+
   
 
   constructor(
-              private auth: AuthService,
               private firestore: FirestoreService,
               private router: Router,
               private interaction: InteractionService
+
   ) { }
 
   ngOnInit() {
@@ -61,5 +62,7 @@ export class AgregarPage implements OnInit {
     const { nombre, precio, descripcion, plataforma } = this.juegos;
     return !nombre || precio <= 0 || !descripcion || !plataforma;
   }
+
+
 
 }

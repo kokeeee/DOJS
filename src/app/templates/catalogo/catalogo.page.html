@@ -1,0 +1,42 @@
+<ion-header [translucent]="true" class="">
+  <ion-toolbar class="">
+    <ion-buttons slot="start">
+      <ion-menu-button class=""></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="">Catalogo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="fondoc">
+  <ion-row *ngFor="let juego of juegos">
+    <ion-col>
+      <ion-card>
+        <ion-card-content>
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+              </ion-col>
+              <ion-col>
+                <article>
+                  <ion-card-title>{{juego.nombre}}</ion-card-title>
+                  <ion-card-subtitle class="negro">${{juego.precio}}</ion-card-subtitle>
+                  <h5>{{juego.plataforma}}</h5>
+                </article>
+                <article>
+                  <ion-button color="warning" size="small">
+                    <ion-icon name="information-circle"></ion-icon>
+                  </ion-button>
+                  
+                  <ion-button  size="small">
+                    <ion-icon name="cart"></ion-icon>
+                  </ion-button>
+                </article>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
+</ion-content>

@@ -7,6 +7,41 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-button>Juegos</ion-button>
+<ion-content [fullscreen]="true" class="fondohome">
+  
+  <section class="ion-margin-top blanco">
+    <header>
+      <h1 class="ion-text-center">Los mas vendidos!</h1>
+      <hr>
+    </header>
+    <div class="linea brillo"></div>
+    <br>
+    <br>
+    <br>
+    <div class="box cuadro">
+      <span style="--i:1;"><img src="../../assets/img/dragon.jpg" alt=""></span>
+      <span style="--i:2;"><img src="../../assets/img/god.webp" alt=""></span>
+      <span style="--i:3;"><img src="../../assets/img/gta.jpg" alt=""></span>
+      <span style="--i:4;"><img src="../../assets/img/spider.webp" alt=""></span>
+      <span style="--i:5;"><img src="../../assets/img/destiny.jpg" alt=""></span>
+      <span style="--i:6;"><img src="../../assets/img/battle.jpg" alt=""></span>
+      <span style="--i:7;"><img src="../../assets/img/mortal.png" alt=""></span>
+      <span style="--i:8;"><img src="../../assets/img/final.jpg" alt=""></span>
+    </div>
+    <ion-button expand="block" [routerLink]="['/catalogo']">Ver catalogo</ion-button>
+  </section>
+  <br>
+  <div class="linea brillo"></div>
+  <section class="ion-margin-top seccion2 blanco ion-text-center ion-padding">
+    <h2 class="blanco ">Participa de eventos</h2>
+    <p>Informate de nuestros eventos gamer en nuestras <a href="">redes sociales</a>, para poder participar por premios </p>
+  </section>
+  <br>
+  <div class="linea brillo"></div>
+  <section class="ion-text-center blanco">
+    <h1>Nuestra sede</h1>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d212696.64867796574!2d-70.82982097185857!3d-33.595310290511655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662d94f6eef1f51%3A0x48e82f1d2eb65ea9!2sDuoc%20UC%3A%20Sede%20San%20Bernardo!5e0!3m2!1ses-419!2scl!4v1693706442158!5m2!1ses-419!2scl" width="200" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </section>
+  <div class="linea brillo"></div>
+  
 </ion-content>
