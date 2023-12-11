@@ -12,10 +12,12 @@ import { UserI } from './models/models';
 export class AppComponent {
   login: boolean = false;
   rol: 'Usuario' | 'Admin' | null = null;
+  itemsCarrito: any[] = [];
 
   public appPages = [
     { title: 'Home', url: '/home', icon: 'home' },
     { title: 'Catalogo', url: 'catalogo', icon: 'cart' },
+    { title: 'Paises', url: 'infojuegos', icon: 'map' },
 
   ];
   

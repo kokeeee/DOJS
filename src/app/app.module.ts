@@ -12,6 +12,7 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -25,6 +26,7 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
       AngularFireDatabaseModule,
       AngularFirestoreModule,
       AngularFireStorageModule,
+      HttpClientModule
       
     ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],

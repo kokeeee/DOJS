@@ -21,8 +21,10 @@
       <ion-col>
         <ion-card class="ion-padding">
           <ion-card-header>
+            <img class="image" [src]="juego.imagen">
             <ion-card-title class="negro">{{juego.nombre}}</ion-card-title>
             <ion-card-subtitle class="negro">${{juego.precio}}</ion-card-subtitle>
+            <ion-card-subtitle class="negro">{{juego.stock}}</ion-card-subtitle>
             <ion-card-subtitle class="negro">{{juego.plataforma}}</ion-card-subtitle>
           </ion-card-header>
         

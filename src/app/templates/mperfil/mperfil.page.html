@@ -1,0 +1,52 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="fondo1 ion-padding">
+  <section class="ion-padding">
+    <article class="ion-padding">
+      <h3 class="blanco ion-text-center">Modificar Perfil</h3>
+    </article>
+    <form (ngSubmit)="actualizarPerfil()">
+      <ion-item>
+        <ion-label position="floating" class="text-white">Nombre de Usuario</ion-label>
+        <ion-input [(ngModel)]="info.username" name="username" required ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating" class="text-white">Correo Electrónico</ion-label>
+        <ion-input [(ngModel)]="info.correo" name="correo" type="email" required ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating" class="text-white">Teléfono</ion-label>
+        <ion-input [(ngModel)]="info.telefono" name="telefono" type="tel" required ></ion-input>
+      </ion-item>
+      <!-- Agrega campos adicionales según sea necesario -->
+
+      <ion-item class="text-white">
+        <ion-label class="normal">Foto:</ion-label>
+        <ion-buttons slot="end">
+          <ion-button>
+            <label for="file-upload">
+              <ion-icon slot="icon-only" name="images"></ion-icon>
+            </label>
+            <input (change)="uploadImage($event)" id="file-upload" style="display: none" type="file" accept="image/*">
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+      <ion-item>
+        <img class="image" *ngIf="info.imagenPerfil" [src]="info.imagenPerfil" alt="Imagen de perfil">
+      </ion-item>
+
+      <ion-button expand="block" class="ion-margin-top" type="submit" >Actualizar Perfil</ion-button>
+    </form>
+  </section>
+  <ion-grid>
+    <ion-row>
+      <ion-button [routerLink]="['/perfil']">Volver</ion-button>
+    </ion-row>
+  </ion-grid>
+</ion-content>

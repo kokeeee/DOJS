@@ -54,4 +54,30 @@ export class PerfilPage implements OnInit {
     }
   }
 
+
+  // Nuevo método para manejar la carga de la imagen de perfil
+  async uploadImageProfile(event: any) {
+    if (event.target && event.target.files && event.target.files[0]) {
+      const file = event.target.files[0];
+      const reader = new FileReader();
+      reader.onload = async (image) => {
+        if (image && image.target && image.target.result) {
+          this.info = this.info || {} as UserI;  // Asegúramos de que this.info no sea null
+          this.info.imagenPerfil = image.target.result as string;
+          await this.updateImageProfile();  // Actualiza la imagen de perfil en Firestore
+        }
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+
+    // Nuevo método para actualizar la imagen de perfil en Firestore
+    private async updateImageProfile() {
+      if (this.uid && this.info) {
+        const id = this.uid;
+        const dataToUpdate = { imagenPerfil: this.info.imagenPerfil };
+        await this.firestore.updateDoc('Usuarios', id, dataToUpdate);
+      }
+    }
+
 }

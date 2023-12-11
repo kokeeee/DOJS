@@ -16,6 +16,8 @@ export class EditarJPage implements OnInit {
     precio: 0,
     descripcion: '',
     plataforma: '',
+    imagen: '',
+    stock: 0
   };
 
   constructor(private bd: FirestoreService,
@@ -25,20 +27,22 @@ export class EditarJPage implements OnInit {
               ) {}
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
-      const id = params['id'];
+    this.route.params.subscribe(params => {// Observa los cambios en los parámetros de la ruta.
+      const id = params['id'];// Obtiene el parámetro 'id' de la ruta.
       if (id) {
-        this.cargarJuego(id);
+        this.cargarJuego(id);// Carga la información del juego utilizando el ID.
       }
     });
   }
 
+
+  // Método para cargar la información de un juego en base a su ID.
   cargarJuego(id: string) {
     this.bd.getDoc<JuegosI>('juegos', id).subscribe((juego) => {
       if (juego) {
-        this.juegos = juego;
+        this.juegos = juego; // Asigna la información del juego a la variable 'juegos'.
       } else {
-        this.juegos = { id: '', nombre: '', precio: 0, descripcion: '', plataforma: '' }; 
+        this.juegos = { id: '', nombre: '', precio: 0, descripcion: '', plataforma: '' ,imagen: '',stock:0}; 
       }
     });
   }
@@ -56,5 +60,18 @@ export class EditarJPage implements OnInit {
       console.error('Error al actualizar juego:', error);
       this.interaction.closeLoading();
     });
+  }
+
+  newImageUpload(event: any) {
+    if (event.target && event.target.files && event.target.files[0]) {
+      const file = event.target.files[0]; // Obtiene el archivo de la carga.
+      const reader = new FileReader();
+      reader.onload = (image) => {
+        if (image && image.target && image.target.result) {
+          this.juegos.imagen = image.target.result as string; // Asigna la imagen convertida a base64 a la variable del juego.
+        }
+      };
+      reader.readAsDataURL(file); // Lee el archivo como base64.
+    }
   }
 }

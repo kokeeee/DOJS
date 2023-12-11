@@ -38,6 +38,21 @@ const routes: Routes = [
     redirectTo: 'listar-juegos',
     pathMatch: 'full'
   },
+  {
+    path: 'perfil',
+    redirectTo: 'perfil',
+    pathMatch: 'full'
+  },
+  {
+    path: 'carrito',
+    redirectTo: 'carrito',
+    pathMatch: 'full'
+  },
+  {
+    path: 'infojuegos',
+    redirectTo: 'infojuegos',
+    pathMatch: 'full'
+  },
   ///////////////////////////////////////////////////////////////////////////////////
   // Seccion que se encarga de redireccionar a las vistas
   {
@@ -81,6 +96,20 @@ const routes: Routes = [
     path: 'catalogo',
     loadChildren: () => import('./templates/catalogo/catalogo.module').then( m => m.CatalogoPageModule),
     canActivate: [GuardsService]
+  },
+  {
+    path: 'mperfil/:id',
+    loadChildren: () => import('./templates/mperfil/mperfil.module').then( m => m.MperfilPageModule),
+    canActivate: [GuardsService]
+  },
+  {
+    path: 'carrito',
+    loadChildren: () => import('./templates/carrito/carrito.module').then( m => m.CarritoPageModule),
+    canActivate: [GuardsService]
+  },
+  {
+    path: 'infojuegos',
+    loadChildren: () => import('./templates/infojuegos/infojuegos.module').then( m => m.InfojuegosPageModule)
   },
   {
     path: 'e404',

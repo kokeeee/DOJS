@@ -23,12 +23,30 @@
           <ion-input class="blanco"  name="number" type="number" [(ngModel)]="juegos.precio"></ion-input>
         </ion-item>
         <ion-item>
+          <ion-label position="floating" class="blanco">Stock</ion-label>
+          <ion-input class="blanco"  name="number" type="number" [(ngModel)]="juegos.stock"></ion-input>
+        </ion-item>
+        <ion-item>
           <ion-label position="floating" class="blanco">Descripcion</ion-label>
           <ion-input class="blanco"  name="text" type="text" required [(ngModel)]="juegos.descripcion"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label position="floating" class="blanco">Plataforma</ion-label>
           <ion-input class="blanco"  type="text" required [(ngModel)]="juegos.plataforma" ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label class="normal">Foto:</ion-label>
+          <ion-buttons slot="end">
+            <ion-button>
+              <label for="file-upload">
+                <ion-icon slot="icon-only" name="images"></ion-icon>
+              </label>
+              <input (change)="newImageUpload($event)" id="file-upload" style="display: none" type="file" accept="image/*">
+            </ion-button>
+          </ion-buttons>
+        </ion-item>
+        <ion-item>
+          <img class="image" [src]="juegos.imagen">
         </ion-item>
 
 

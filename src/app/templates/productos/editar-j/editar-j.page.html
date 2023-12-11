@@ -9,7 +9,7 @@
 <ion-content [fullscreen]="true" class="fondo1 ion-padding">
   <section class="ion-padding">
     <article class="ion-padding">
-      <h3 class="blanco ion-text-center ">Modificar Juego</h3>
+      <h3 class="blanco ion-text-center">Modificar Juego</h3>
     </article>
     <nav>
       <ion-item>
@@ -21,12 +21,30 @@
         <ion-input [(ngModel)]="juegos.precio" name="number" type="number"></ion-input>
       </ion-item>
       <ion-item>
+        <ion-label position="floating">Stock</ion-label>
+        <ion-input [(ngModel)]="juegos.stock" name="number" type="number"></ion-input>
+      </ion-item>
+      <ion-item>
         <ion-label position="floating">Descripción</ion-label>
         <ion-input [(ngModel)]="juegos.descripcion" name="text" type="text" required></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="floating">Plataforma</ion-label>
         <ion-input [(ngModel)]="juegos.plataforma" type="text" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label class="normal">Foto:</ion-label>
+        <ion-buttons slot="end">
+          <ion-button>
+            <label for="file-upload">
+              <ion-icon slot="icon-only" name="images"></ion-icon>
+            </label>
+            <input (change)="newImageUpload($event)" id="file-upload" style="display: none" type="file" accept="image/*">
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+      <ion-item *ngIf="juegos.imagen">
+        <img class="image" [src]="juegos.imagen" alt="Imagen del juego">
       </ion-item>
 
       <ion-button expand="block" class="ion-margin-top" (click)="actualizarJuego(juegos.id)">Actualizar Juego</ion-button>

@@ -4,7 +4,8 @@ export interface UserI{
     telefono: string,
     uid: string,
     password: string,
-    perfil: 'Usuario' | 'Admin'
+    perfil: 'Usuario' | 'Admin',
+    imagenPerfil?: string;
 }
 export interface JuegosI{
     id: string;
@@ -12,4 +13,6 @@ export interface JuegosI{
     precio: number,
     descripcion: string,
     plataforma: string,
+    imagen: string;
+    stock: number;
 }

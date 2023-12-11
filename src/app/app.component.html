@@ -5,6 +5,12 @@
         <ion-list id="inbox-list">
           <section class="ion-align-items-center">
             <ion-list-header class="ion-text-center">GAMEDOJS</ion-list-header>
+            <a href="/carrito">
+              <ion-item>
+                <ion-icon name="cart-outline"></ion-icon>
+                <ion-badge slot="end">{{ itemsCarrito.length }}</ion-badge>
+              </ion-item>
+              </a>
           </section>
 
           <ion-menu-toggle  class="ion-padding" auto-hide="false" *ngFor="let p of appPages; let i = index">

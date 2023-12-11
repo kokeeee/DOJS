@@ -10,9 +10,10 @@
 <ion-content [fullscreen]="true" class="fondo1 ion-padding">
   <section class="ion-padding">
     <nav *ngIf="info">
-        <article>
-          <img src="../../../assets/img/user.webp" alt="">
-        </article>
+      <article>
+        <img *ngIf="info.imagenPerfil" [src]="info.imagenPerfil" alt="Imagen de perfil">
+        <img *ngIf="!info.imagenPerfil" src="../../../assets/img/user.webp" alt="Imagen de perfil por defecto">
+      </article>
         <div class="linea"></div>
         <ion-grid>
           <h3 class="ion-text-center blanco">{{info.username}}</h3>
@@ -35,6 +36,7 @@
           </ion-row>
         </ion-grid>
         <div class="linea"></div>
+        <ion-button [routerLink]="['/mperfil', info.uid]">Modificar Perfil</ion-button>
 
         
     </nav>
